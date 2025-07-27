@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  mikrotik-dashboard:
+    build: .
+    ports:
+      - "8088:8088"
+    environment:
+      - MIKROTIK_IP=${MIKROTIK_IP}
+      - USUARIO=${USUARIO}
+      - CLAVE=${CLAVE}
+    restart: unless-stopped
+    networks:
+      - default
